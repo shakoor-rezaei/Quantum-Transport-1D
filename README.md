@@ -45,7 +45,7 @@ Requires a C++17 compiler, CMake >= 3.16, and Python 3 with NumPy and Matplotlib
 ```bash
 cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
 cmake --build build --config Release -j
-ctest --test-dir build --output-on-failure
+ctest --test-dir build -C Release --output-on-failure
 python -m pip install -r requirements.txt
 ```
 
