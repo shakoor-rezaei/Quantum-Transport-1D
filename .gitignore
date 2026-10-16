@@ -1,0 +1,27 @@
+
+# Build files
+build/
+cmake-build-*/
+CMakeFiles/
+CMakeCache.txt
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Editor files
+.vscode/
+.idea/
+
+# Compiled binaries
+*.exe
+*.o
+*.obj
+
+# Generated runs
+results_*/
+
+# System files
+.DS_Store
+Thumbs.db
