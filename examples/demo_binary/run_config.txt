@@ -1,0 +1,17 @@
+model=binary
+N=600
+U=0.050000000000000003
+s1=2
+s2=5
+p=0.5
+mu=0.5
+alpha=2
+s0=1
+d=1
+max_rank=100000
+truncated_mean_spacing=3.5
+realizations=200
+seed=12345
+threads=3
+fit_start=0
+fit_end=1

@@ -1,0 +1,2 @@
+Original filename: energy_00038.dat
+Energy: 1.9428902930940239e-16

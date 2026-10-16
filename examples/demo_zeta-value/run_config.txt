@@ -1,0 +1,17 @@
+model=zeta-value
+N=1000
+U=0.20000000000000001
+s1=2
+s2=5
+p=0.5
+mu=0.5
+alpha=2
+s0=1
+d=2
+max_rank=100000
+truncated_mean_spacing=1.1729400039460818
+realizations=1000
+seed=12345
+threads=4
+fit_start=0
+fit_end=1

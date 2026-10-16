@@ -1,0 +1,44 @@
+Archived thesis results versus an independent C++ rerun
+
+Rerun: N=10000, 1000 realizations/energy, seed=12345, dE=0.05,
+energies -1.9..1.9. Archived samples span -2..1.99 with dE=0.01.
+Other archived run metadata (seeds, fit intervals, sample counts)
+are not recoverable from the two-column files alone.
+
+Comparison domain: |E|<=1.75, finite positive xi; binary cases also
+exclude ||E|-1|<0.1 from summary statistics. All paired values
+including singular energies are retained in comparison CSV files.
+These differences measure agreement between finite Monte Carlo runs,
+not a rigorous confidence interval or proof of thermodynamic behavior.
+
+Binary spacings 2 and 5 (binary_2_5)
+  Archived/new/paired/selected points: 400/77/77/63
+  Median |delta xi|/xi_thesis: 2.90%
+  90th percentile: 6.61%
+  Maximum in selected domain: 11.84%
+  Archive SHA-256: 8c184cd169029845a403bb2d332b2db9d8ad7a2502f391ea0e38696160cfc1e6
+  Resonance E=-1: old xi=1.5328092e+09, new xi=4.7364731e+09, new fit R^2=4.5754e-05
+  Resonance E=1: old xi=2.7111071e+09, new xi=4.327991e+09, new fit R^2=5.1588e-05
+
+Binary spacings 3 and 6 (binary_3_6)
+  Archived/new/paired/selected points: 400/77/77/63
+  Median |delta xi|/xi_thesis: 3.00%
+  90th percentile: 7.07%
+  Maximum in selected domain: 11.79%
+  Archive SHA-256: 83f6e586fc7ed8b44618e75865828872e08ee1cc17ae2197888beae78b0583cd
+  Resonance E=-1: old xi=1743.2893, new xi=3411.048, new fit R^2=0.79556
+  Resonance E=1: old xi=1742.9223, new xi=3411.048, new fit R^2=0.79556
+
+Exponential spacing (exponential)
+  Archived/new/paired/selected points: 400/77/77/71
+  Median |delta xi|/xi_thesis: 1.21%
+  90th percentile: 2.91%
+  Maximum in selected domain: 4.52%
+  Archive SHA-256: 095615f0fec0df8896c5bbc72990a9d18a8f0b60eb7aece57ad9585a272d33b6
+
+Standard zeta spacing (zeta)
+  Archived/new/paired/selected points: 400/77/77/71
+  Median |delta xi|/xi_thesis: 1.30%
+  90th percentile: 3.51%
+  Maximum in selected domain: 6.04%
+  Archive SHA-256: bae65d5ff83e09db5ce16d624fe21463720b750a2d763a59104f096c521fed4f
