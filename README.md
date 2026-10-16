@@ -8,35 +8,35 @@ This repository is based on the MSc research project **Quantum Transport in Lév
 
 With hopping set to one, the discrete Schrödinger equation is
 
-\[
+```math
 \psi_{n+1}+\psi_{n-1}+U_n\psi_n=E\psi_n.
-\]
+```
 
-A sampled spacing \(s\) produces one block \([0,\ldots,0,U]\), containing \(s-1\) zero-potential sites and one impurity. Blocks are appended until the chain contains exactly \(N\) sites; the last block is truncated if needed. Leads are clean. The simulation uses \(-2<E<2\).
+A sampled spacing $s$ produces one block $[0,\ldots,0,U]$, containing $s-1$ zero-potential sites and one impurity. Blocks are appended until the chain contains exactly $N$ sites; the last block is truncated if needed. Leads are clean. The simulation uses energies $E\in(-2,2)$.
 
 | `--model` | Allowed spacings | Probability rule |
 |---|---|---|
-| `binary` | \(s_1,s_2\) | \(P(s_1)=p,\ P(s_2)=1-p\) |
-| `exponential` | \(1,2,3,\ldots\) | \(P(s)\propto\exp[-\mu(s-1)]\) |
-| `zeta` | \(1,2,3,\ldots\) | \(P(s)\propto s^{-(1+\alpha)}\) |
-| `zeta-rank` | \(s_r=s_0+(r-1)d\) | \(P(s_r)\propto r^{-(1+\alpha)}\) |
-| `zeta-value` | \(s_r=s_0+(r-1)d\) | \(P(s_r)\propto s_r^{-(1+\alpha)}\) |
+| `binary` | $s_1,s_2$ | $P(s_1)=p,\ P(s_2)=1-p$ |
+| `exponential` | $1,2,3,\ldots$ | $P(s)\propto\exp[-\mu(s-1)]$ |
+| `zeta` | $1,2,3,\ldots$ | $P(s)\propto s^{-(1+\alpha)}$ |
+| `zeta-rank` | $s_r=s_0+(r-1)d$ | $P(s_r)\propto r^{-(1+\alpha)}$ |
+| `zeta-value` | $s_r=s_0+(r-1)d$ | $P(s_r)\propto s_r^{-(1+\alpha)}$ |
 
-**Important:** `d` is the *arithmetic spacing increment*, not a geometric ratio. For `s0=1, d=2` the allowed spacings are `1, 3, 5, 7, ...`. The spacing `3` has weight \(2^{-(1+\alpha)}\) in `zeta-rank`, but \(3^{-(1+\alpha)}\) in `zeta-value`. Each law is normalized separately.
+**Important:** `d` is the *arithmetic spacing increment*, not a geometric ratio. For `s0=1, d=2` the allowed spacings are `1, 3, 5, 7, ...`. The spacing `3` has weight $2^{-(1+\alpha)}$ in `zeta-rank`, but $3^{-(1+\alpha)}$ in `zeta-value`. Each law is normalized separately.
 
 All infinite-support laws are truncated and renormalized at `--max-rank` (default `100000`). For small `alpha`, especially `alpha <= 1`, finite cutoff and finite-size effects can be substantial. Run cutoff and system-size convergence studies before interpreting asymptotic behavior. The reported mean spacing is for the truncated distribution.
 
 ## Numerical observables
 
-For each energy, a seeded set of disorder realizations yields the mean log transmission \(\langle\ln T_n\rangle\) after `n = 0,...,N` sites. With the thesis convention,
+For each energy, a seeded set of disorder realizations yields the mean log transmission $\langle\ln T_n\rangle$ after `n = 0,...,N` sites. With the thesis convention,
 
-\[
+```math
 \langle\ln T_n\rangle\simeq C-2\gamma n,\qquad \xi=\gamma^{-1}=-2/\text{slope}.
-\]
+```
 
 Fitting bounds `--fit-start` and `--fit-end` are fractions of `N` (default: the whole trace). Near-zero slopes are reported as `xi=inf`; a significantly positive slope is reported as `xi=nan`, since a negative inverse localization length is not a physical conclusion. Very large finite-chain `xi` alone does **not** establish a transparent state in the thermodynamic limit.
 
-Units: energy and impurity potential are in units of hopping; \(\xi\) is in lattice spacings. No eV or Å conversion is implied.
+Units: energy and impurity potential are in units of hopping; $\xi$ is in lattice spacings. No eV or Å conversion is implied.
 
 ## Build
 
@@ -105,8 +105,8 @@ For a single energy, replace the energy-grid options with `--E 1`. Run `--help` 
 - `run_config.txt`: model, simulation parameters, seed and truncated mean spacing.
 - `distribution_preview.csv`: first 40 supported spacings and their normalized probabilities.
 - `sample_chain.csv`: first 500 sites of one realization.
-- `energy_00000.dat`, etc.: \(N+1\) values of \(\langle\ln T_n\rangle\), starting at \(n=0\).
-- `summary.csv`: energies, final \(\langle\ln T_N\rangle\), slope, Lyapunov exponent, localization length and fit quality.
+- `energy_00000.dat`, etc.: $N+1$ values of $\langle\ln T_n\rangle$, starting at $n=0$.
+- `summary.csv`: energies, final $\langle\ln T_N\rangle$, slope, Lyapunov exponent, localization length and fit quality.
 - `plots/`: graphs from `plot_results.py`.
 - `comparison/`: second-order comparison from `compare_second_order.py`.
 
@@ -121,7 +121,7 @@ The independent random seed of a realization does not depend on energy or thread
 
 ## Reproducing the MSc numerical results
 
-The user-supplied raw numeric output and historical plots are preserved under
+The archived MSc numerical output and historical plots are preserved under
 [`validation/`](validation/README.md), with SHA-256 checksums in the report.
 A separate execution of this C++ version was performed for the four standard
 models at `N=10000`, `realizations=1000`, `seed=12345`, `dE=0.05`,
@@ -162,17 +162,17 @@ python tests/test_cli.py build/quantum_transport
 
 `analysis/compare_second_order.py` implements the **second-order**, not fourth-order, weak-disorder prediction of the cited paper:
 
-\[
+```math
 \gamma_2(E)=\frac{U^2}{8\langle s\rangle\sin^2 k}\,
 \frac{1-|A_2|^2}{|1-A_2|^2},\qquad
 A_2=\sum_s P(s)e^{-2iks},\quad E=2\cos k.
-\]
+```
 
 Its probability sum uses the same finite cutoff as the simulator. This approximation may fail near band edges, resonant/anomalous energies and outside weak disorder. It must not be used as a universal exact benchmark.
 
 For comparison with the article, relevant published parameter sets include binary `(s1,s2,p,U)=(2,5,0.5,0.1)` and `(3,6,0.5,0.1)`, exponential `(mu,U)=(0.5,0.2)`, and zeta `(alpha,U)=(2,0.2)`. **The small demo in `examples/demo_binary` is an illustrative numerical check, not a reproduction of those full published figures.** Before presenting a figure as reproduced, verify its system size, averaging count, fit interval, cutoff and uncertainties.
 
-The earlier thesis implementation and later rewrites were the starting points for this refactor. The refactor improves reproducibility and numerical range; it does not, by itself, establish a new physical result or prove correctness for every parameter regime.
+The MSc implementation and subsequent revisions were the starting points for this refactor. The refactor improves reproducibility and numerical range; it does not, by itself, establish a new physical result or prove correctness for every parameter regime.
 
 ## Reference
 
