@@ -42,26 +42,36 @@ The N=100000 linear fit even has a **positive** tiny slope at E=-1; this further
 Use the free-site and impurity-site transfer matrices
 
 ```math
-F(E)=\begin{pmatrix}E&-1\\1&0\end{pmatrix},\qquad
-A(E,U)=\begin{pmatrix}E-U&-1\\1&0\end{pmatrix}.
+F(E)=\begin{pmatrix}
+E & -1\\
+1 & 0
+\end{pmatrix},
+\qquad
+A(E,U)=\begin{pmatrix}
+E-U & -1\\
+1 & 0
+\end{pmatrix}.
 ```
 
 At `E=+1`, `F^3=-I`; at `E=-1`, `F^3=+I`. Since the two allowed spacings differ by three sites, the matrices advancing from one impurity to the next are
 
 ```math
-B_2=A F,\qquad B_5=A F^4=\pm A F=\pm B_2.
+B_2=AF,\qquad B_5=AF^4=\pm AF=\pm B_2.
 ```
 
-Thus, apart from bounded terminal factors, the random product of impurity-to-impurity matrices equals `+/- (B_2)^m`. In this convention
+More specifically, `B_5=-B_2` at `E=+1`, while `B_5=B_2` at `E=-1`.
+
+Thus, apart from bounded terminal factors, the random product of impurity-to-impurity matrices equals `+/- (B_2)^m`. In this convention,
 
 ```math
-\det B_2=1,\qquad \operatorname{tr} B_2=E(E-U)-2.
+\det B_2=1,\qquad \mathrm{tr}(B_2)=E(E-U)-2.
 ```
 
-For `U=0.1`, `tr B_2 = -1.1` at `E=+1` and `-0.9` at `E=-1`. Both lie strictly between -2 and 2, so the eigenvalues of `B_2` are distinct, lie on the unit circle, and its powers are bounded. Therefore the log transmission does not grow linearly in magnitude with N and the **asymptotic Lyapunov exponent is zero** at the two *exact* resonance energies in this idealized model. The asymptotic localization length is divergent, rather than a finite number such as `1e9`.
+For `U=0.1`, the trace of `B_2` is `-1.1` at `E=+1` and `-0.9` at `E=-1`. Both lie strictly between `-2` and `2`, so the eigenvalues of `B_2` are distinct, lie on the unit circle, and its powers are bounded.
 
-This transfer-matrix argument relies on the precise spacings, energy, potential and nearest-neighbor model. It does not prove delocalization over a finite energy interval or under arbitrary model modifications.
+Therefore, the log transmission does not grow linearly in magnitude with N, and the **asymptotic Lyapunov exponent is zero** at the two *exact* resonance energies in this idealized model. The asymptotic localization length is divergent, rather than a finite number such as `1e9`.
 
+This transfer-matrix argument relies on the precise spacings, energy, potential, and nearest-neighbor model. It does not prove delocalization over a finite energy interval or under arbitrary model modifications.
 ## Files and provenance
 
 - `historical_traces/`: original uploaded raw mean-log-transmission files, copied without changing their contents.
