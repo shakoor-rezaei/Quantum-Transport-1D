@@ -97,10 +97,15 @@ To regenerate the six C++ runs on Linux/macOS, first build and test the project 
 
 ```bash
 ./build/quantum_transport --model binary --N 5000 --U 0.1 --s1 2 --s2 5 --p 0.5 --E -1 --realizations 1000 --threads 1 --seed 12345 --out check_binary25_N5000_Eminus1
+
 ./build/quantum_transport --model binary --N 5000 --U 0.1 --s1 2 --s2 5 --p 0.5 --E 1 --realizations 1000 --threads 1 --seed 12345 --out check_binary25_N5000_Eplus1
+
 ./build/quantum_transport --model binary --N 10000 --U 0.1 --s1 2 --s2 5 --p 0.5 --E -1 --realizations 1000 --threads 1 --seed 12345 --out check_binary25_N10000_Eminus1
+
 ./build/quantum_transport --model binary --N 10000 --U 0.1 --s1 2 --s2 5 --p 0.5 --E 1 --realizations 1000 --threads 1 --seed 12345 --out check_binary25_N10000_Eplus1
+
 ./build/quantum_transport --model binary --N 100000 --U 0.1 --s1 2 --s2 5 --p 0.5 --E -1 --realizations 1000 --threads 1 --seed 12345 --out check_binary25_N100000_Eminus1
+
 ./build/quantum_transport --model binary --N 100000 --U 0.1 --s1 2 --s2 5 --p 0.5 --E 1 --realizations 1000 --threads 1 --seed 12345 --out check_binary25_N100000_Eplus1
 ```
 
