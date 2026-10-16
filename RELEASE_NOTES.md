@@ -16,9 +16,8 @@ Validation performed on this codebase:
 
 The median absolute differences outside specified problematic energies are
 2.90%, 3.00%, 1.21%, and 1.30% respectively for binary (2,5), binary (3,6),
-exponential and standard zeta. The exception near ±1 in binary (3,6) is not
-resolved; check `validation/figures/comparison_report.txt` before interpreting
-it as transparent or localized. Binary (2,5) resonance lengths have extremely
+exponential and standard zeta. The discrepancy near nominal E=±1 in binary (3,6) is largely explained by the finite-chain fitting length: historical 5000-point fits and new N=5000 fits agree within 0.15%. The N=10000 fits differ, so the asymptotic localization length is not established; see validation/resonance_binary_3_6/README.md.
+ Binary (2,5) resonance lengths have extremely
 small fit R² and should not be taken as robust finite values.
 
 These checks establish meaningful tested numerical agreement, not identity to
